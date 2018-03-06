@@ -3,30 +3,82 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-          <a class="navbar-brand" [routerLink]="['/home']">{{title}}</a>
+        <a class="navbar-brand" [routerLink]="['/home']">{{title}}</a>
       </div>
       <ul class="nav navbar-nav">
         <li>
-          <span class="glyphicon glyphicon-home"></span>
-          <a [routerLink]="['/home']" [routerLinkActive]="['activado']">Inicio</a>
+          <a [routerLink]="['/home']" [routerLinkActive]="['activado']">
+            <span class="glyphicon glyphicon-home"></span>
+            <span style="margin-left:5px;">Inicio</span>
+          </a>
         </li>
         <li>
-          <span class="glyphicon glyphicon-star"></span>
-          <a [routerLink]="['/animals']" [routerLinkActive]="['activado']">Animales</a>
+          <a [routerLink]="['/animals']" [routerLinkActive]="['activado']">
+            <span class="glyphicon glyphicon-star"></span>
+            <span style="margin-left:5px;">Animales</span>
+          </a>
         </li>
         <li>
-          <span class="glyphicon glyphicon-user"></span>
-          <a [routerLink]="['/keepers']" [routerLinkActive]="['activado']">Cuidadores</a>
+          <a [routerLink]="['/keepers']" [routerLinkActive]="['activado']">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="margin-left:5px;">Cuidadores</span>
+          </a>
         </li>
         <li>
-          <span class="glyphicon glyphicon-gift"></span>
-          <a [routerLink]="['/shop']" [routerLinkActive]="['activado']">Tienda</a>
+          <a [routerLink]="['/shop']" [routerLinkActive]="['activado']">
+            <span class="glyphicon glyphicon-gift"></span>
+            <span style="margin-left:5px;">Tienda</span>
+          </a>
         </li>
         <li>
-          <span class="glyphicon glyphicon-comment"></span>
-          <a [routerLink]="['/contact']" [routerLinkActive]="['activado']">Contact</a>
+          <a [routerLink]="['/contact']" [routerLinkActive]="['activado']">
+            <span class="glyphicon glyphicon-comment"></span>
+            <span style="margin-left:5px;">Contact</span>
+          </a>
         </li>
       </ul>
+
+      <ul class="nav navbar-nav navbar-right" *ngIf="!identity">
+        <li>
+          <a [routerLink]="['/register']" [routerLinkActive]="['activado']">
+            <span class="glyphicon glyphicon-user"></span>
+            <span style="margin-left:5px;">Registro</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/login']" [routerLinkActive]="['activado']">
+            <span class="glyphicon glyphicon-log-in"></span>
+            <span style="margin-left:5px;">Login</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right" *ngIf="identity">
+        <li class="avatar">
+          <img src="{{ url + 'get-image-user/' + identity.image }}">
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            {{identity.name}}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a [routerLink]="['/my-data']" class="pointer">
+                <span class="glyphicon glyphicon-cog"></span>
+                Mis datos
+              </a>
+            </li>
+            <li>
+              <a (click)="logout()" class="pointer">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Salir
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
     </div>
   </nav>
 </div>

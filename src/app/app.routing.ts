@@ -7,6 +7,9 @@ import { AnimalsComponent } from './animals/animals.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { KeepersComponent } from './keepers/keepers.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -15,7 +18,9 @@ const appRoutes: Routes = [
     {path: 'animals', component: AnimalsComponent},
     {path: 'keepers', component: KeepersComponent},
     {path: 'shop', component: TiendaComponent},
-    // {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
+    {path: 'register', component: RegisterComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'my-data', component: UserEditComponent},
     {path: '**', component: HomeComponent}
 ];
 

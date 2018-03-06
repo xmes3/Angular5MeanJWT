@@ -21,6 +21,27 @@
     border-bottom: 6px solid orange !important;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+.image-for-edit img {
+    width: 60px;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 700px;
+    overflow: hidden;
+    margin-top: 9px;
+    margin-right: -5px;
+}
+
+.avatar img {
+    height: 45px;
+}
+
 .boton_transiciones {
     padding: 10px;
     background: red;
@@ -74,3 +95,4 @@
         transform: rotate(360deg)
     }
 }
+

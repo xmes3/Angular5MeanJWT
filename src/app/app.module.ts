@@ -17,6 +17,12 @@ import { AnimalsComponent } from './animals/animals.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { KeepersComponent } from './keepers/keepers.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+
+// servicios
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,10 @@ import { KeepersComponent } from './keepers/keepers.component';
     AnimalsComponent,
     HomeComponent,
     ContactComponent,
-    KeepersComponent
+    KeepersComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,8 @@ import { KeepersComponent } from './keepers/keepers.component';
     AdminModule,
     BrowserAnimationsModule
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
