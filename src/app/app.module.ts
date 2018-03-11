@@ -23,6 +23,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 
 // servicios
 import { UserService } from './services/user.service';
+import { AdminGuard } from './services/admin-guard';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,10 @@ import { UserService } from './services/user.service';
     AdminModule,
     BrowserAnimationsModule
   ],
-  providers: [appRoutingProviders, UserService],
+  providers: [
+    appRoutingProviders,
+    UserService,
+    AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

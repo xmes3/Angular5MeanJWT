@@ -63,6 +63,12 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
+            <li *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+              <a [routerLink]="['/admin-panel']" class="pointer">
+                <span class="glyphicon glyphicon-tasks"></span>
+                Administración
+              </a>
+            </li>
             <li>
               <a [routerLink]="['/my-data']" class="pointer">
                 <span class="glyphicon glyphicon-cog"></span>
