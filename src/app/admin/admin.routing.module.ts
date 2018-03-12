@@ -17,7 +17,7 @@ const adminRoutes: Routes = [
             {path: '', redirectTo: 'list', pathMatch: 'full' },
             {path: 'list', component: ListComponent },
             {path: 'add', component: AddComponent },
-            {path: 'edit', component: EditComponent },
+            {path: 'edit/:id', component: EditComponent },
         ]
     },
     {path: 'list-panel', component: ListComponent }

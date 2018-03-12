@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AdminRoutingModule } from './admin.routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // importar componentes
 import { MainComponent } from './components/main/main.component';
@@ -22,7 +23,8 @@ import { EditComponent } from './components/edit/edit.component';
         CommonModule,
         FormsModule,
         HttpModule,
-        AdminRoutingModule
+        AdminRoutingModule,
+        BrowserAnimationsModule
     ],
     exports: [
         CommonModule,

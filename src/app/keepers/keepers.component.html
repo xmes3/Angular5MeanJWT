@@ -2,4 +2,20 @@
   <h1>
     {{title}}
   </h1>
+  <div class="animal-item" *ngFor="let keeper of keepers">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div *ngIf="keeper.image">
+            <img src="{{url + 'get-image-user/' + keeper.image}}" alt="{{keeper.name}}">
+          </div>
+          <div *ngIf="!keeper.image">
+            Aún no tiene imagen asignada
+          </div>
+          <div class="caption">
+            <h3>{{keeper.name}}</h3>
+            <p>{{keeper.surname}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

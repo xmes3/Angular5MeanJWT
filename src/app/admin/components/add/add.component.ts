@@ -5,12 +5,13 @@ import { Animal } from '../../../models/animal';
 import { UserService } from '../../../services/user.service';
 import { AnimalService } from '../../../services/animal.service';
 import { UploadService } from '../../../services/upload.service';
-
+import { fadeLateral } from '../../animation';
 
 @Component({
   selector: 'app-admin-add',
   templateUrl: './add.component.html',
-  providers: [UserService, AnimalService, UploadService]
+  providers: [UserService, AnimalService, UploadService],
+  animations: [fadeLateral]
 })
 
 export class AddComponent implements OnInit {
@@ -19,6 +20,7 @@ export class AddComponent implements OnInit {
   public identity;
   public token;
   public url: string;
+  public filesToUpload: Array<File>;
   public status;
 
   constructor(
@@ -40,7 +42,6 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.animal);
     this._animalService.addAnimal(this.token, this.animal).subscribe(
       response => {
         if (!response.animal) {
@@ -50,8 +51,20 @@ export class AddComponent implements OnInit {
           this.animal = response.animal;
 
           // subir imagen
-
-          this._router.navigate(['/admin-panel/list']);
+          if (!this.filesToUpload) {
+            this._router.navigate(['/admin-panel/list']);
+          } else {
+            this._uploadService.makeFileRequest(
+              this.url + 'upload-image-animal/' + response.animal._id,
+              [],
+              this.filesToUpload,
+              this.token,
+              'image')
+              .then((result: any) => {
+                this.animal.image = result.image;
+                this._router.navigate(['/admin-panel/list']);
+              });
+          }
         }
       },
       error => {
@@ -61,5 +74,9 @@ export class AddComponent implements OnInit {
         }
       }
     );
+  }
+
+  fileChangeEvent(fileInput: any) {
+    this.filesToUpload = <Array<File>>fileInput.target.files;
   }
 }

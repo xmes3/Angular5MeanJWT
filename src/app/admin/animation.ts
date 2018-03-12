@@ -1,17 +1,17 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AnimationEntryMetadata } from '@angular/core';
 
-export const fadeIn: AnimationEntryMetadata =
-    trigger('fadeIn', [
+export const fadeLateral: AnimationEntryMetadata =
+    trigger('fadeLateral', [
         transition(':enter', [
             style({
                 opacity: 0,
-                transform: 'translateY(-25%)'
+                transform: 'translateX(-20%)'
             }),
-            animate('500ms linear',
+            animate('300ms ease-in',
             style({
                 opacity: 1,
-                transform: 'translateY(0)'
+                transform: 'translateX(0)'
             }))
         ])
     ]);

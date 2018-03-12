@@ -2,4 +2,22 @@
   <h1>
     {{title}}
   </h1>
+
+  <div class="animal-item" *ngFor="let animal of animals">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div *ngIf="animal.image">
+          <img src="{{url + 'get-image-animal/' + animal.image}}" alt="{{animal.name}}">
+        </div>
+        <div *ngIf="!animal.image">
+          Aún no tiene imagen asignada
+        </div>
+        <div class="caption">
+          <h3><a [routerLink]="['/animal', animal._id]">{{animal.name}}</a></h3>
+          <p>{{animal.year}}</p>
+          <p>{{animal.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

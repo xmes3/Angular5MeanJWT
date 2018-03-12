@@ -29,6 +29,10 @@
     width: 60px;
 }
 
+.animal-item img {
+    width: 200px;
+}
+
 .avatar {
     width: 35px;
     height: 35px;

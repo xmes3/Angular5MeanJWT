@@ -20,10 +20,12 @@ import { KeepersComponent } from './keepers/keepers.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { AnimalDetailComponent } from './animal-detail/animal-detail.component';
 
 // servicios
 import { UserService } from './services/user.service';
 import { AdminGuard } from './services/admin-guard';
+import { SearchPipe } from './admin/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AdminGuard } from './services/admin-guard';
     KeepersComponent,
     LoginComponent,
     RegisterComponent,
-    UserEditComponent
+    UserEditComponent,
+    AnimalDetailComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import { AdminGuard } from './services/admin-guard';
   providers: [
     appRoutingProviders,
     UserService,
-    AdminGuard],
+    AdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
